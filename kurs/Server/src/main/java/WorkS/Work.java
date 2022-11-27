@@ -100,7 +100,7 @@ public class Work implements Runnable {
                 }
             }
         } catch (IOException | ClassNotFoundException | SQLException e) {
-            System.out.println("Client disconnected.");
+            System.out.println("Client disconnected." + e.getMessage());
         }
     }
 }

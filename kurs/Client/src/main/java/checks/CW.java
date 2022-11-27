@@ -10,4 +10,20 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class CW {
+    public static void changeWindow(Class className, Button button, String fname, String title, boolean ismodal) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(className.getResource("/" + fname));
+        fxmlLoader.load();
+        Parent root = fxmlLoader.getRoot();
+        Stage stage = new Stage();
+        stage.setTitle(title);
+        stage.setScene(new Scene(root));
+        if (ismodal) {
+            stage.initModality(Modality.APPLICATION_MODAL);
+        }
+        else {
+            button.getScene().getWindow().hide();
+        }
+        stage.show();
+    }
 }

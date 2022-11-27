@@ -50,6 +50,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 CREATE TABLE IF NOT EXISTS `warehouse`.`storages` (
   `idstorage` INT NOT NULL AUTO_INCREMENT,
   `type` VARCHAR(45) NOT NULL,
+  `size` INT NULL default NULL,
   PRIMARY KEY (`idstorage`),
   UNIQUE INDEX `storage_UNIQUE` (`type` ASC) VISIBLE)
 ENGINE = InnoDB
@@ -57,6 +58,22 @@ AUTO_INCREMENT = 17
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
+-- -----------------------------------------------------
+-- Table `warehouse`.`products`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `warehouse`.`products` (
+  `idproduct` INT NOT NULL AUTO_INCREMENT,
+  `typeName` VARCHAR(45) NOT NULL,
+  `idstorage` INT NOT NULL,
+  PRIMARY KEY (`idproduct`),
+  INDEX `fk_products_storages_idx` (`idstorage` ASC) VISIBLE,
+  CONSTRAINT `fk_products_storages`
+    FOREIGN KEY (`idstorage`)
+    REFERENCES `warehouse`.`storages` (`idstorage`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 13
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 -- -----------------------------------------------------
 -- Table `warehouse`.`workers`
@@ -84,3 +101,71 @@ ENGINE = InnoDB
 AUTO_INCREMENT = 15
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
+
+-- -----------------------------------------------------
+-- Table `warehouse`.`payments`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `warehouse`.`payments` (
+  `idpayment` INT NOT NULL AUTO_INCREMENT,
+  `payment` INT NOT NULL,
+  `balance` INT NULL DEFAULT NULL,
+  PRIMARY KEY (`idpayment`),
+  UNIQUE INDEX `payment_UNIQUE` (`payment` ASC) VISIBLE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 33
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+-- -----------------------------------------------------
+-- Table `warehouse`.`clients`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `warehouse`.`clients` (
+  `idclient` INT NOT NULL AUTO_INCREMENT,
+  `companyName` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `id_keys` INT NOT NULL,
+  `idpayment` INT NULL DEFAULT NULL,
+  PRIMARY KEY (`idclient`),
+  UNIQUE INDEX `id_keys_UNIQUE` (`id_keys` ASC) VISIBLE,
+  UNIQUE INDEX `idpayment_UNIQUE` (`idpayment` ASC) VISIBLE,
+  INDEX `fk_clients_keys_idx` (`id_keys` ASC) VISIBLE,
+  CONSTRAINT `fk_clients_keys`
+    FOREIGN KEY (`id_keys`)
+    REFERENCES `warehouse`.`keys` (`id_keys`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_clients_payments`
+    FOREIGN KEY (`idpayment`)
+    REFERENCES `warehouse`.`payments` (`idpayment`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 36
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+-- -----------------------------------------------------
+-- Table `warehouse`.`ttns`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `warehouse`.`ttns` (
+  `idttn` INT NOT NULL AUTO_INCREMENT,
+  `productName` varchar(45) NOT NULL,
+  `status` varchar(45) NOT NULL,
+  `productSize` INT NULL DEFAULT NULL,
+  `shelfLifeProd` DATE NULL DEFAULT NULL,
+  `idproduct` INT NOT NULL,
+  `idworker` INT NOT NULL,
+  PRIMARY KEY (`idttn`),
+  INDEX `fk_groups_products_idx` (`idproduct` ASC) VISIBLE,
+  INDEX `fk_groups_workers_idx` (`idworker` ASC) VISIBLE,
+  CONSTRAINT `fk_ttns_products`
+    FOREIGN KEY (`idproduct`)
+    REFERENCES `warehouse`.`products` (`idproduct`),
+  CONSTRAINT `fk_ttbs_workers`
+    FOREIGN KEY (`idworker`)
+    REFERENCES `warehouse`.`workers` (`idworker`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 12
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
