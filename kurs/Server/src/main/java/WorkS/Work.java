@@ -5,6 +5,7 @@ import StorOrg.Admin;
 import StorOrg.Authorization;
 import StorOrg.Role;
 import StorOrg.Worker;
+import StorOrg.Clients;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -54,7 +55,22 @@ public class Work implements Runnable {
                             soos.writeObject("Incorrect Data");
                         }
                     }
+                    case "registrationClient" -> {
+                        System.out.println("Запрос к БД на проверку пользователя(таблица clients), клиент: " + clientSocket.getInetAddress().toString());
+                        Clients client = (Clients) sois.readObject();
+                        System.out.println(client.toString());
 
+                        SQLFactory sqlFactory = new SQLFactory();
+                        Role r = sqlFactory.getClients().insert(client);
+                        System.out.println((r.toString()));
+
+                        if (r.getId() != 0 && r.getRole() != "") {
+                            soos.writeObject("OK");
+                            soos.writeObject(r);
+                        } else {
+                            soos.writeObject("This user is already existed");
+                        }
+                    }
                     case "workerInf" -> {
                         System.out.println("Запрос к БД на проверку работника (таблица workers), клиент: " + clientSocket.getInetAddress().toString());
                         Role r = (Role) sois.readObject();

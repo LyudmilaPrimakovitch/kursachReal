@@ -28,39 +28,32 @@ public class MenuAdminController {
     private Button dbWorkButton;
 
     @FXML
-    private Button showGrButton;
+    private Button clientBlok;
 
     @FXML
-    private Button showTeachButton;
+    private Button inventarization;
 
     @FXML
     private Button personalInfButton;
 
     @FXML
-    private Button infStudButton;
+    private Button clientAnalise;
 
     @FXML
     private Button profitButton;
 
-    @FXML
-    private Button averagePerfButton;
+
 
     @FXML
-    void averagePerf(ActionEvent event) throws IOException {
-        Connection.client.sendMessage("getChartProgress");
-       CW.changeWindow(getClass(), infStudButton, "adminDiagrProgress.fxml", "", false);
-    }
-
-    @FXML
-    void infStud(ActionEvent event) throws IOException {
-        Connection.client.sendMessage("studInf");
-        CW.changeWindow(getClass(), infStudButton, "studentInf.fxml", "", false);
+    void analise(ActionEvent event) throws IOException {
+        Connection.client.sendMessage("analise");
+        CW.changeWindow(getClass(), clientAnalise, "analiseClient.fxml", "", false);
     }
 
     @FXML
     void profit(ActionEvent event) throws IOException {
         Connection.client.sendMessage("getDiagrReceive");
-        CW.changeWindow(getClass(), infStudButton, "adminDiagrReceive.fxml", "", false);
+        CW.changeWindow(getClass(), clientAnalise, "adminDiagrReceive.fxml", "", false);
     }
 
     @FXML
@@ -107,17 +100,17 @@ public class MenuAdminController {
         stage.show();
     }
 
-    @FXML
-    void showGrTimetable(ActionEvent event) throws IOException {
-        Connection.client.sendMessage("showGrTimetable");
-        CW.changeWindow(getClass(), showGrButton, "groupsTimetable.fxml", "", false);
-    }
+//    @FXML
+//    void showGrTimetable(ActionEvent event) throws IOException {
+//        Connection.client.sendMessage("showGrTimetable");
+//        CW.changeWindow(getClass(), showGrButton, "groupsTimetable.fxml", "", false);
+//    }
 
-    @FXML
-    void showTTimetable(ActionEvent event) throws IOException {
-        Connection.client.sendMessage("showGrTeacher");
-        CW.changeWindow(getClass(), showTeachButton, "showTeachers.fxml", "", false);
-    }
+//    @FXML
+//    void showTTimetable(ActionEvent event) throws IOException {
+//        Connection.client.sendMessage("showGrTeacher");
+//        CW.changeWindow(getClass(), showTeachButton, "showTeachers.fxml", "", false);
+//    }
 
     @FXML
     void initialize() {

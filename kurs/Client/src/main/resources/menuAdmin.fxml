@@ -5,53 +5,48 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #e5eefc;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MenuAdminController">
+<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #FFDEAD;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MenuAdminController">
     <children>
-        <Button fx:id="backButton" layoutX="33.0" layoutY="348.0" mnemonicParsing="false" onAction="#backToMain" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #e5eefc; -fx-border-color: #c7dcf7; -fx-border-width: 3px; -fx-border-radius: 10px;" text="Назад" textAlignment="CENTER">
+        <Button fx:id="backButton" layoutX="316.0" layoutY="338.0" mnemonicParsing="false" onAction="#backToMain" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Вернуться" textAlignment="CENTER">
             <font>
                 <Font size="14.0" />
             </font>
         </Button>
-        <AnchorPane prefHeight="72.0" prefWidth="700.0" style="-fx-background-color: #c7dcf7;">
+        <AnchorPane prefHeight="72.0" prefWidth="700.0" style="-fx-background-color: #F4A460;">
             <children>
-                <Label layoutX="256.0" layoutY="5.0" prefHeight="61.0" prefWidth="187.0" text="Administrator" textAlignment="RIGHT">
+                <Label layoutX="212.0" layoutY="5.0" prefHeight="62.0" prefWidth="252.0" text="Администратор" textAlignment="RIGHT">
                     <font>
                         <Font name="Bernard MT Condensed" size="35.0" />
                     </font>
                 </Label>
             </children>
         </AnchorPane>
-        <Button fx:id="personalInfButton" layoutX="83.0" layoutY="90.0" mnemonicParsing="false" onAction="#persInf" prefHeight="37.0" prefWidth="214.0" style="-fx-background-color: #e5eefc; -fx-border-color: #c7dcf7; -fx-border-width: 3px; -fx-border-radius: 10px;" text="Личная информация" textAlignment="CENTER">
+        <Button fx:id="personalInfButton" layoutX="83.0" layoutY="90.0" mnemonicParsing="false" onAction="#persInf" prefHeight="37.0" prefWidth="214.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Личная информация" textAlignment="CENTER">
             <font>
                 <Font size="14.0" />
             </font>
         </Button>
-        <Button fx:id="showGrButton" layoutX="416.0" layoutY="162.0" mnemonicParsing="false" onAction="#showGrTimetable" prefHeight="37.0" prefWidth="214.0" style="-fx-background-color: #e5eefc; -fx-border-color: #c7dcf7; -fx-border-width: 3px; -fx-border-radius: 10px;" text="Расписание групп" textAlignment="CENTER">
+        <Button fx:id="dbWorkButton" layoutX="416.0" layoutY="90.0" mnemonicParsing="false" onAction="#dbWork" prefHeight="37.0" prefWidth="214.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Работа с БД" textAlignment="CENTER">
             <font>
                 <Font size="14.0" />
             </font>
         </Button>
-        <Button fx:id="showTeachButton" layoutX="83.0" layoutY="162.0" mnemonicParsing="false" onAction="#showTTimetable" prefHeight="37.0" prefWidth="214.0" style="-fx-background-color: #e5eefc; -fx-border-color: #c7dcf7; -fx-border-width: 3px; -fx-border-radius: 10px;" text="Расписание преподавателей" textAlignment="CENTER">
+        <Button fx:id="clientAnalise" layoutX="83.0" layoutY="236.0" mnemonicParsing="false" onAction="#analise" prefHeight="37.0" prefWidth="214.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Анализ поставщиков" textAlignment="CENTER">
             <font>
                 <Font size="14.0" />
             </font>
         </Button>
-        <Button fx:id="dbWorkButton" layoutX="416.0" layoutY="90.0" mnemonicParsing="false" onAction="#dbWork" prefHeight="37.0" prefWidth="214.0" style="-fx-background-color: #e5eefc; -fx-border-color: #c7dcf7; -fx-border-width: 3px; -fx-border-radius: 10px;" text="Работа с БД" textAlignment="CENTER">
+        <Button fx:id="profitButton" layoutX="416.0" layoutY="236.0" mnemonicParsing="false" onAction="#profit" prefHeight="37.0" prefWidth="214.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Расчет прибыли" textAlignment="CENTER">
             <font>
                 <Font size="14.0" />
             </font>
         </Button>
-        <Button fx:id="infStudButton" layoutX="83.0" layoutY="236.0" mnemonicParsing="false" onAction="#infStud" prefHeight="37.0" prefWidth="214.0" style="-fx-background-color: #e5eefc; -fx-border-color: #c7dcf7; -fx-border-width: 3px; -fx-border-radius: 10px;" text="Информация о студентах" textAlignment="CENTER">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="profitButton" layoutX="416.0" layoutY="236.0" mnemonicParsing="false" onAction="#profit" prefHeight="37.0" prefWidth="214.0" style="-fx-background-color: #e5eefc; -fx-border-color: #c7dcf7; -fx-border-width: 3px; -fx-border-radius: 10px;" text="Расчет прибыли" textAlignment="CENTER">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-      <Button fx:id="averagePerfButton" layoutX="243.0" layoutY="303.0" mnemonicParsing="false" onAction="#averagePerf" prefHeight="37.0" prefWidth="214.0" style="-fx-background-color: #e5eefc; -fx-border-color: #c7dcf7; -fx-border-width: 3px; -fx-border-radius: 10px;" text="Средняя успеваемость" textAlignment="CENTER">
+      <Button fx:id="inventarization" layoutX="83.0" layoutY="160.0" mnemonicParsing="false" onAction="#infStud" prefHeight="37.0" prefWidth="214.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Инвентаризация" textAlignment="CENTER">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="clientBlok" layoutX="416.0" layoutY="160.0" mnemonicParsing="false" onAction="#infStud" prefHeight="37.0" prefWidth="214.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Заблокировать поставика" textAlignment="CENTER">
          <font>
             <Font size="14.0" />
          </font>

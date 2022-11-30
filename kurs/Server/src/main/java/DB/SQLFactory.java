@@ -7,6 +7,11 @@ public class SQLFactory extends AbstractFactory {
         return SQLWorker.getInstance();
     }
 
+
+    public SQLClients getClients() throws SQLException, ClassNotFoundException {
+        return SQLClients.getInstance();
+    }
+
     public SQLAuthorization getRole() throws SQLException, ClassNotFoundException {
         return SQLAuthorization.getInstance();
     }

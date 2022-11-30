@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #e5eefc;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #FFDEAD;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
     <children>
-        <AnchorPane prefHeight="113.0" prefWidth="700.0" style="-fx-background-color: #c7dcf7;">
+        <AnchorPane prefHeight="113.0" prefWidth="700.0" style="-fx-background-color: #F4A460;">
             <children>
-                <Label layoutX="175.0" layoutY="26.0" prefHeight="61.0" prefWidth="350.0" text="Welcome to program" textAlignment="CENTER">
+                <Label layoutX="100.0" layoutY="26.0" prefHeight="62.0" prefWidth="541.0" text="Программа складского учета" textAlignment="CENTER">
                     <font>
                         <Font name="Bernard MT Condensed" size="35.0" />
                     </font>
@@ -20,7 +20,7 @@
         </AnchorPane>
         <TextField fx:id="login" layoutX="237.0" layoutY="155.0" prefHeight="37.0" prefWidth="225.0" style="-fx-background-radius: 20px;" />
         <PasswordField fx:id="password" layoutX="237.0" layoutY="234.0" prefHeight="37.0" prefWidth="225.0" style="-fx-background-radius: 20px;" />
-        <Label layoutX="162.0" layoutY="160.0" text="Логин">
+        <Label layoutX="162.0" layoutY="160.0" prefHeight="27.0" prefWidth="62.0" text="Логин">
             <font>
                 <Font size="18.0" />
             </font>
@@ -30,12 +30,12 @@
                 <Font size="18.0" />
             </font>
         </Label>
-        <Button fx:id="enterButton" layoutX="237.0" layoutY="312.0" mnemonicParsing="false" onAction="#authorization" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #e5eefc; -fx-border-color: #c7dcf7; -fx-border-width: 3px; -fx-border-radius: 10px;" text="Вход" textAlignment="CENTER">
+        <Button fx:id="enterButton" layoutX="237.0" layoutY="312.0" mnemonicParsing="false" onAction="#authorization" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Вход" textAlignment="CENTER">
             <font>
                 <Font size="14.0" />
             </font>
         </Button>
-        <Button fx:id="registrationButton" layoutX="344.0" layoutY="312.0" mnemonicParsing="false" onAction="#registration" prefHeight="37.0" prefWidth="117.0" style="-fx-background-color: #e5eefc; -fx-border-color: #c7dcf7; -fx-border-width: 3px; -fx-border-radius: 10px;" text="Регистрация">
+        <Button fx:id="registrationButton" layoutX="344.0" layoutY="312.0" mnemonicParsing="false" onAction="#registration" prefHeight="37.0" prefWidth="117.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Регистрация">
             <font>
                 <Font size="14.0" />
             </font>

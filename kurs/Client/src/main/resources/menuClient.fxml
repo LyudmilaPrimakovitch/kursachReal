@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #FFDEAD;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.menuClientController">
+    <children>
+        <Button fx:id="backButton" layoutX="300.0" layoutY="348.0" mnemonicParsing="false" onAction="#backToMain" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Назад" textAlignment="CENTER">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <AnchorPane prefHeight="72.0" prefWidth="700.0" style="-fx-background-color: #F4A460;">
+            <children>
+                <Label layoutX="253.0" layoutY="5.0" prefHeight="62.0" prefWidth="182.0" text="Поставщик" textAlignment="RIGHT">
+                    <font>
+                        <Font name="Bernard MT Condensed" size="35.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+      <Button fx:id="personalInfButton" layoutX="83.0" layoutY="90.0" mnemonicParsing="false" onAction="#persInf" prefHeight="37.0" prefWidth="214.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Личная информация" textAlignment="CENTER">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="changeLP" layoutX="90.0" layoutY="237.0" mnemonicParsing="false" onAction="#changelogpas" prefHeight="37.0" prefWidth="214.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Сменить логин/пароль" textAlignment="CENTER">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="showTTNButton" layoutX="416.0" layoutY="90.0" mnemonicParsing="false" onAction="#showTTN" prefHeight="37.0" prefWidth="214.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Мои накладные" textAlignment="CENTER">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="regTTNButton" layoutX="243.0" layoutY="160.0" mnemonicParsing="false" onAction="#regTTN" prefHeight="37.0" prefWidth="214.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Оформить ТТН" textAlignment="CENTER">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="prodButton" layoutX="416.0" layoutY="236.0" mnemonicParsing="false" onAction="#showProduction" prefHeight="37.0" prefWidth="214.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Ознакомиться с продукцией" textAlignment="CENTER">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+    </children>
+</AnchorPane>

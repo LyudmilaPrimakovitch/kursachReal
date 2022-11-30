@@ -8,7 +8,35 @@ public class Clients implements Serializable{
     private String email;
     private String login;
     private String password;
+
+    private String averageV;
+    private int fullV=0;
+    private int positiveV=0;
     private int payment;
+
+    public String getAverageV() {
+        return averageV;
+    }
+
+    public int getFullV() {
+        return fullV;
+    }
+
+    public void setFullV(int fullV) {
+        this.fullV = fullV;
+    }
+
+    public void setAverageV(String averageV) {
+        this.averageV = averageV;
+    }
+
+    public int getPositiveV() {
+        return positiveV;
+    }
+
+    public void setPositiveV(int positiveV) {
+        this.positiveV = positiveV;
+    }
 
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
@@ -62,19 +90,23 @@ public class Clients implements Serializable{
         return  Objects.equals(this.login, that.login) &&
                 Objects.equals(this.password, that.password) &&
                 Objects.equals(this.companyName, that.companyName) &&
-                Objects.equals(this.email, that.email);
+                Objects.equals(this.email, that.email) &&
+                Objects.equals(this.averageV,that.averageV);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.login, this.password, this.companyName, this.email);
+        return Objects.hash(this.login, this.password, this.companyName, this.email, this.averageV);
     }
 
     @Override
     public String toString() {
-        return "Students{" +
-                "firstname='" + companyName + '\'' +
-                ", lastname='" + email + '\'' +
+        return "Clients{" +
+                " companyName='" + companyName + '\'' +
+                ", email='" + email + '\'' +
+                ", averageV='" + averageV + '\'' +
+                ", fullV='" + fullV + '\'' +
+                ", positiveV='" + positiveV + '\'' +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 ", payment=" + payment +
