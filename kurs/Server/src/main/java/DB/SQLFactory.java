@@ -7,7 +7,9 @@ public class SQLFactory extends AbstractFactory {
         return SQLWorker.getInstance();
     }
 
-
+    public SQLTTNs getTTNs() throws SQLException, ClassNotFoundException {
+        return SQLTTNs.getInstance();
+    }
     public SQLClients getClients() throws SQLException, ClassNotFoundException {
         return SQLClients.getInstance();
     }

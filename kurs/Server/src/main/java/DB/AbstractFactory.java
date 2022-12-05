@@ -8,7 +8,7 @@ public abstract class AbstractFactory {
     public abstract SQLAuthorization getRole() throws SQLException, ClassNotFoundException;
     public abstract SQLProducts getProducts() throws SQLException, ClassNotFoundException;
 //    public abstract SQLTimetable getTimetable() throws SQLException, ClassNotFoundException;
-//    public abstract SQLGroups getGroups() throws SQLException, ClassNotFoundException;
+    public abstract SQLTTNs getTTNs() throws SQLException, ClassNotFoundException;
     public abstract SQLAdmin getAdmin() throws SQLException, ClassNotFoundException;
 //    public abstract SQLReceive getReceive() throws SQLException, ClassNotFoundException;
 }
