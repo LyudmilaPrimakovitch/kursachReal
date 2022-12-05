@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="300.0" prefWidth="500.0" style="-fx-background-color: #FFDEAD;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DeleteStudentController">
+    <children>
+        <Label layoutX="68.0" layoutY="100.0" text="Введите логин для блокировки поставщика:">
+            <font>
+                <Font size="18.0" />
+            </font></Label>
+        <AnchorPane prefHeight="72.0" prefWidth="500.0" style="-fx-background-color: #F4A460;">
+            <children>
+                <Label layoutX="141.0" layoutY="5.0" prefHeight="62.0" prefWidth="243.0" text="Заблокировать" textAlignment="RIGHT">
+                    <font>
+                        <Font name="Bernard MT Condensed" size="35.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <Button fx:id="deleteButton" layoutX="182.0" layoutY="237.0" mnemonicParsing="false" onAction="#deleteStud" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Заблокировать" textAlignment="CENTER">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+      <TextField fx:id="idstud" layoutX="182.0" layoutY="160.0" prefHeight="37.0" prefWidth="136.0" style="-fx-background-radius: 20px;" />
+    </children>
+</AnchorPane>

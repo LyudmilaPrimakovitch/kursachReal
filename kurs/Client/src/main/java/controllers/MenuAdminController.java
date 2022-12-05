@@ -46,10 +46,28 @@ public class MenuAdminController {
 
     @FXML
     void analise(ActionEvent event) throws IOException {
-        Connection.client.sendMessage("analise");
-        CW.changeWindow(getClass(), clientAnalise, "analiseClient.fxml", "", false);
-    }
+        clientAnalise.getScene().getWindow().hide();
 
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/Analise.fxml"));
+
+        try {
+            loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Parent root = loader.getRoot();
+        Stage stage = new Stage();
+        stage.setScene(new Scene((root)));
+        stage.show(); }
+
+
+    @FXML
+    void blok(ActionEvent event) throws IOException {
+        Connection.client.sendMessage("blok");
+        CW.changeWindow(getClass(), clientBlok, "blokClient.fxml", "", false);
+    }
     @FXML
     void profit(ActionEvent event) throws IOException {
         Connection.client.sendMessage("getDiagrReceive");
@@ -100,17 +118,11 @@ public class MenuAdminController {
         stage.show();
     }
 
-//    @FXML
-//    void showGrTimetable(ActionEvent event) throws IOException {
-//        Connection.client.sendMessage("showGrTimetable");
-//        CW.changeWindow(getClass(), showGrButton, "groupsTimetable.fxml", "", false);
-//    }
-
-//    @FXML
-//    void showTTimetable(ActionEvent event) throws IOException {
-//        Connection.client.sendMessage("showGrTeacher");
-//        CW.changeWindow(getClass(), showTeachButton, "showTeachers.fxml", "", false);
-//    }
+    @FXML
+    void invent(ActionEvent event) throws IOException {
+        Connection.client.sendMessage("inventarization");
+        CW.changeWindow(getClass(), inventarization, "showTTNs.fxml", "", false);
+    }
 
     @FXML
     void initialize() {

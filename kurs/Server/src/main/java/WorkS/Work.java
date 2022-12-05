@@ -1,11 +1,7 @@
 package WorkS;
 
 import DB.SQLFactory;
-import StorOrg.Admin;
-import StorOrg.Authorization;
-import StorOrg.Role;
-import StorOrg.Worker;
-import StorOrg.Clients;
+import StorOrg.*;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -111,6 +107,20 @@ public class Work implements Runnable {
                             soos.writeObject(r);
                         } else
                             soos.writeObject("There is no data!");
+                    }
+
+                    case "addProd"->{
+                        System.out.println("Выполняется добавление продукции...");
+                        Products product = (Products) sois.readObject();
+                        System.out.println(product.toString());
+
+                        SQLFactory sqlFactory = new SQLFactory();
+
+                        if (sqlFactory.getProducts().insertProducts(product)) {
+                            soos.writeObject("OK");
+                        } else {
+                            soos.writeObject("Ошибка при записи курса");
+                        }
                     }
 
                 }

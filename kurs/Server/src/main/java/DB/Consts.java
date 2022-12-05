@@ -7,5 +7,4 @@ public class Consts {
     public static final String WORKERS_LASTNAME = "lastname";
     public static final String WORKERS_USERNAME = "username";
     public static final String WORKERS_PASSWORD = "password";
-
 }

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #FFDEAD;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RegCourseController">
+    <children>
+        <Label layoutX="132.0" layoutY="151.0" text="Тип продукции">
+            <font>
+                <Font size="18.0" />
+            </font></Label>
+        <Label layoutX="171.0" layoutY="96.0" text="Склад">
+            <font>
+                <Font size="18.0" />
+            </font></Label>
+        <Button fx:id="backButton" layoutX="33.0" layoutY="348.0" mnemonicParsing="false" onAction="#backToMain" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Назад" textAlignment="CENTER">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <AnchorPane prefHeight="72.0" prefWidth="700.0" style="-fx-background-color: #F4A460;">
+            <children>
+                <Label layoutX="179.0" layoutY="5.0" prefHeight="62.0" prefWidth="321.0" text="Оформление ТТН" textAlignment="RIGHT">
+                    <font>
+                        <Font name="Bernard MT Condensed" size="35.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <Button fx:id="registrationButton" layoutX="586.0" layoutY="348.0" mnemonicParsing="false" onAction="#registrationCourse" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Отправить" textAlignment="CENTER">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+      <ComboBox id="languageList" fx:id="languageList" layoutX="275.0" layoutY="97.0" prefWidth="150.0" style="-fx-background-color: #FFDEAD; -fx-border-width: 5px; -fx-border-color: #F4A460; -fx-border-radius: 20px;" />
+      <ComboBox id="courseList" fx:id="courseList" layoutX="275.0" layoutY="149.0" prefWidth="150.0" style="-fx-background-color: #FFDEAD; -fx-border-width: 5px; -fx-border-color: #F4A460; -fx-border-radius: 20px;" />
+      <Label layoutX="133.0" layoutY="205.0" text="Наименование">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField layoutX="272.0" layoutY="201.0" style="-fx-background-color: #FFDEAD; -fx-border-radius: 20px; -fx-border-width: 5px; -fx-border-color: #F4A460;" />
+      <Label layoutX="191.0" layoutY="251.0" text="Объем">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField layoutX="272.0" layoutY="247.0" style="-fx-background-color: #FFDEAD; -fx-border-radius: 20px; -fx-border-width: 5px; -fx-border-color: #F4A460;" />
+    </children>
+</AnchorPane>

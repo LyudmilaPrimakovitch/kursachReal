@@ -41,12 +41,12 @@
                 <Font size="14.0" />
             </font>
         </Button>
-      <Button fx:id="inventarization" layoutX="83.0" layoutY="160.0" mnemonicParsing="false" onAction="#infStud" prefHeight="37.0" prefWidth="214.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Инвентаризация" textAlignment="CENTER">
+      <Button fx:id="inventarization" layoutX="83.0" layoutY="160.0" mnemonicParsing="false" onAction="#invent" prefHeight="37.0" prefWidth="214.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Инвентаризация" textAlignment="CENTER">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="clientBlok" layoutX="416.0" layoutY="160.0" mnemonicParsing="false" onAction="#infStud" prefHeight="37.0" prefWidth="214.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Заблокировать поставика" textAlignment="CENTER">
+      <Button fx:id="clientBlok" layoutX="416.0" layoutY="160.0" mnemonicParsing="false" onAction="#blok" prefHeight="37.0" prefWidth="214.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Заблокировать поставика" textAlignment="CENTER">
          <font>
             <Font size="14.0" />
          </font>

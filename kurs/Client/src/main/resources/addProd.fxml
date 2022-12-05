@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="300.0" prefWidth="500.0" style="-fx-background-color: #FFDEAD;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddProdController">
+    <children>
+        <Label layoutX="115.0" layoutY="165.0" text="Тип">
+            <font>
+                <Font size="18.0" />
+            </font></Label>
+        <Label layoutX="106.0" layoutY="99.0" text="Склад">
+            <font>
+                <Font size="18.0" />
+            </font></Label>
+        <AnchorPane prefHeight="72.0" prefWidth="500.0" style="-fx-background-color: #F4A460;">
+            <children>
+                <Label layoutX="162.0" layoutY="5.0" prefHeight="62.0" prefWidth="201.0" text="Продукция" textAlignment="RIGHT">
+                    <font>
+                        <Font name="Bernard MT Condensed" size="35.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <Button fx:id="registrationButton" layoutX="386.0" layoutY="238.0" mnemonicParsing="false" onAction="#registrationProduct" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Добавить" textAlignment="CENTER">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <ComboBox id="storageList" fx:id="storageList" layoutX="179.0" layoutY="97.0" prefWidth="150.0" style="-fx-background-color: #FFDEAD; -fx-border-width: 5px; -fx-border-color: #F4A460; -fx-border-radius: 20px;" />
+        <ComboBox id="productList" fx:id="productList" layoutX="179.0" layoutY="163.0" prefWidth="150.0" style="-fx-background-color: #FFDEAD; -fx-border-width: 5px; -fx-border-color: #F4A460; -fx-border-radius: 20px;" />
+    </children>
+</AnchorPane>

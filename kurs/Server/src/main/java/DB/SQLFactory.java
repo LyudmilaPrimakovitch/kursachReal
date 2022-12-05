@@ -19,4 +19,8 @@ public class SQLFactory extends AbstractFactory {
     public SQLAdmin getAdmin() throws SQLException, ClassNotFoundException {
         return SQLAdmin.getInstance();
     }
+
+    public SQLProducts getProducts() throws SQLException, ClassNotFoundException {
+        return SQLProducts.getInstance();
+    }
 }
