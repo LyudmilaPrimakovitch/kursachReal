@@ -22,6 +22,11 @@ public class SQLFactory extends AbstractFactory {
         return SQLAdmin.getInstance();
     }
 
+    @Override
+    public SQLReceive getReceive() throws SQLException, ClassNotFoundException {
+        return SQLReceive.getInstance();
+    }
+
     public SQLProducts getProducts() throws SQLException, ClassNotFoundException {
         return SQLProducts.getInstance();
     }

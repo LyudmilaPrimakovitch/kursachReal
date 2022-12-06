@@ -70,7 +70,7 @@ public class dbWorkController {
 
     @FXML
     void changeWorker(ActionEvent event) throws IOException {
-        CW.changeWindow(getClass(), chWorkerButton, "changeTeacher.fxml", "", true);
+        CW.changeWindow(getClass(), chWorkerButton, "changeWorker.fxml", "", true);
     }
 
 
@@ -95,7 +95,7 @@ public class dbWorkController {
 
     @FXML
     void deleteWorker(ActionEvent event) throws IOException {
-        CW.changeWindow(getClass(), delWorkerButton, "deleteWork.fxml", "", true);
+        CW.changeWindow(getClass(), delWorkerButton, "deleteWorker.fxml", "", true);
     }
 
     @FXML

@@ -71,7 +71,7 @@ public class AddProdController {
         storageList.getItems().addAll(
                 "Открытый",
                 "Крытый",
-                "Рафрижераторный",
+                "Рефрижераторный",
                 "Закрытый",
                 "Стеллажный"
         );

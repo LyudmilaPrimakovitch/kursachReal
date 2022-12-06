@@ -68,6 +68,21 @@ public class SQLWorker implements IWorker {
         return true;
     }
 
+    public boolean deleteWorker(Worker obj) {
+        String proc = "{call delete_worker(?)}";
+        try (CallableStatement callableStatement = Connect.dbConnection.prepareCall(proc)) {
+            callableStatement.setString(1, obj.getLogin());
+            callableStatement.execute();
+        } catch (SQLIntegrityConstraintViolationException e) {
+            System.out.println("ошибка");
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
     public ArrayList<Worker> getWorker(Role r) {
         String str = "select `keys`.login, firstname, lastname, category, storages.`type`" +
                 " from workers" +

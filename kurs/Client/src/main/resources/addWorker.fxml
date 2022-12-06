@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #FFDEAD;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddTeacherController">
+<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #FFDEAD;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddWorkerController">
     <children>
         <Label layoutX="140.0" layoutY="146.0" text="Фамилия">
             <font>
@@ -41,13 +41,13 @@
                 </Label>
             </children>
         </AnchorPane>
-        <Button fx:id="registrationButton" layoutX="574.0" layoutY="348.0" mnemonicParsing="false" onAction="#registrationTeacher" prefHeight="37.0" prefWidth="112.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Регистрация" textAlignment="CENTER">
+        <Button fx:id="registrationButton" layoutX="574.0" layoutY="348.0" mnemonicParsing="false" onAction="#registrationWorker" prefHeight="37.0" prefWidth="112.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Регистрация" textAlignment="CENTER">
             <font>
                 <Font size="14.0" />
             </font>
         </Button>
-      <ComboBox id="languageList" fx:id="category" layoutX="238.0" layoutY="191.0" prefHeight="32.0" prefWidth="225.0" style="-fx-background-color: #FFDEAD; -fx-border-width: 5px; -fx-border-color: #F4A460; -fx-border-radius: 20px;" />
-      <ComboBox id="languageList" fx:id="language" layoutX="238.0" layoutY="236.0" prefHeight="32.0" prefWidth="225.0" style="-fx-background-color: #FFDEAD; -fx-border-width: 5px; -fx-border-color: #F4A460; -fx-border-radius: 20px;" />
+      <ComboBox id="categoryList" fx:id="category" layoutX="238.0" layoutY="191.0" prefHeight="32.0" prefWidth="225.0" style="-fx-background-color: #FFDEAD; -fx-border-width: 5px; -fx-border-color: #F4A460; -fx-border-radius: 20px;" />
+      <ComboBox id="storageList" fx:id="storage" layoutX="238.0" layoutY="236.0" prefHeight="32.0" prefWidth="225.0" style="-fx-background-color: #FFDEAD; -fx-border-width: 5px; -fx-border-color: #F4A460; -fx-border-radius: 20px;" />
       <TextField fx:id="login" layoutX="237.0" layoutY="280.0" prefHeight="37.0" prefWidth="225.0" style="-fx-background-radius: 20px;" />
       <TextField fx:id="password" layoutX="238.0" layoutY="329.0" prefHeight="37.0" prefWidth="225.0" style="-fx-background-radius: 20px;" />
       <Label layoutX="140.0" layoutY="285.0" text="Логин">

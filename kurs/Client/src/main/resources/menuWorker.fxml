@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #FFDEAD;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MenuTeacherController">
+<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #FFDEAD;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MenuWorkerController">
     <children>
         <Button fx:id="backButton" layoutX="33.0" layoutY="348.0" mnemonicParsing="false" onAction="#backToMain" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Вернуться" textAlignment="CENTER">
             <font>
@@ -26,12 +26,12 @@
                 <Font size="14.0" />
             </font>
         </Button>
-        <Button fx:id="markButton" layoutX="259.0" layoutY="162.0" mnemonicParsing="false" onAction="#setmarkButton" prefHeight="37.0" prefWidth="214.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Принять ТТН" textAlignment="CENTER">
+        <Button fx:id="TTNButton" layoutX="259.0" layoutY="162.0" mnemonicParsing="false" onAction="#setTTNButton" prefHeight="37.0" prefWidth="214.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Принять ТТН" textAlignment="CENTER">
             <font>
                 <Font size="14.0" />
             </font>
         </Button>
-        <Button fx:id="coursesButton" layoutX="259.0" layoutY="89.0" mnemonicParsing="false" onAction="#showCourses" prefHeight="37.0" prefWidth="214.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Просмотреть заявки" textAlignment="CENTER">
+        <Button fx:id="ReguestsButton" layoutX="259.0" layoutY="89.0" mnemonicParsing="false" onAction="#showRequests" prefHeight="37.0" prefWidth="214.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Просмотреть заявки" textAlignment="CENTER">
             <font>
                 <Font size="14.0" />
             </font>

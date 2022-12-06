@@ -80,7 +80,7 @@ public class Work implements Runnable {
                     }
 
                     case "changeWorker" -> {
-                        System.out.println("Запрос к БД на изменение пользователя(таблица teachers), клиент: " + clientSocket.getInetAddress().toString());
+                        System.out.println("Запрос к БД на изменение пользователя(таблица workers), клиент: " + clientSocket.getInetAddress().toString());
                         Worker worker = (Worker) sois.readObject();
                         System.out.println(worker.toString());
 
@@ -90,6 +90,20 @@ public class Work implements Runnable {
                             soos.writeObject("OK");
                         } else {
                             soos.writeObject("Incorrect Data");
+                        }
+                    }
+
+                    case "delWorker" -> {
+                        System.out.println("Выполняется удаление работника...");
+                        Worker worker = (Worker) sois.readObject();
+                        System.out.println(worker.toString());
+
+                        SQLFactory sqlFactory = new SQLFactory();
+
+                        if (sqlFactory.getWorkers().deleteWorker(worker)) {
+                            soos.writeObject("OK");
+                        } else {
+                            soos.writeObject("Ошибка при удалении студента");
                         }
                     }
 
@@ -119,7 +133,7 @@ public class Work implements Runnable {
                         if (sqlFactory.getProducts().insertProducts(product)) {
                             soos.writeObject("OK");
                         } else {
-                            soos.writeObject("Ошибка при записи курса");
+                            soos.writeObject("Ошибка при записи продукции.");
                         }
                     }
 

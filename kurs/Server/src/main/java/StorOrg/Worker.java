@@ -78,13 +78,13 @@ public class Worker implements Serializable {
 
     @Override
     public String toString() {
-        return "Teacher{" +
+        return "Worker{" +
                 "id=" + id +
                 ", lastlogin='" + lastlogin + '\'' +
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", category='" + category + '\'' +
-                ", language='" + storage + '\'' +
+                ", storage='" + storage + '\'' +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 '}';
