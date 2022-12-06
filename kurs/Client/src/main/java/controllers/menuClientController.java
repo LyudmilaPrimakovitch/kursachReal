@@ -53,8 +53,8 @@ public class menuClientController {
 
     @FXML
     void showProduction(ActionEvent event) throws IOException {
-        Connection.client.sendMessage("showProduction");
-        CW.changeWindow(getClass(), prodButton, "showProduction.fxml", "", false);
+        Connection.client.sendMessage("showProducts");
+        CW.changeWindow(getClass(), prodButton, "showProducts.fxml", "", false);
     }
 
     @FXML

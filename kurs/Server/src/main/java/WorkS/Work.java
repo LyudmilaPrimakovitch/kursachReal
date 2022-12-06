@@ -137,6 +137,24 @@ public class Work implements Runnable {
                         }
                     }
 
+                    case "findProducts"->{
+                        System.out.println("Запрос к БД на поиск продукции: " + clientSocket.getInetAddress().toString());
+                        Products c = (Products) sois.readObject();
+                        System.out.println(c.toString());
+                        SQLFactory sqlFactory = new SQLFactory();
+                        ArrayList<Products> products = sqlFactory.getProducts().find(c);
+                        System.out.println(products.toString());
+                        soos.writeObject(products);
+                    }
+
+                    case "showProducts"->{
+                        System.out.println("Запрос к БД на получение данных о типах продукции: " + clientSocket.getInetAddress().toString());
+                        SQLFactory sqlFactory = new SQLFactory();
+                        ArrayList<Products> products = sqlFactory.getProducts().get();
+                        System.out.println(products.toString());
+                        soos.writeObject(products);
+                    }
+
                 }
             }
         } catch (IOException | ClassNotFoundException | SQLException e) {

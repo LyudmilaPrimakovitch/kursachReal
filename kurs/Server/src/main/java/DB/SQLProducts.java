@@ -41,29 +41,29 @@ public class SQLProducts implements IProduct{
         String str = "select typeName, storages.`type` from products\n" +
                 "    join storages on storages.idstorage = products.idstorage;";
         ArrayList<String[]> result = dbConnection.getArrayResult(str);
-        ArrayList<Products> courseList = new ArrayList<>();
+        ArrayList<Products> prodList = new ArrayList<>();
         for (String[] items: result){
             Products products = new Products();
             products.setTypeProd(items[0]);
             products.setStorage(items[1]);
-            courseList.add(products);
+            prodList.add(products);
         }
-        return courseList;
+        return prodList;
     }
 
     public ArrayList<Products> find(Products c) {
-        String str = "select typeProd, storages.`type` from products\n" +
+        String str = "select typeName, storages.`type` from products\n" +
                 "    join storages on storages.idstorage = products.idstorage where storages.`type` = " +
                 "\"" + c.getStorage() + "\";";
         ArrayList<String[]> result = dbConnection.getArrayResult(str);
-        ArrayList<Products> courseList = new ArrayList<>();
+        ArrayList<Products> prodList = new ArrayList<>();
         for (String[] items: result){
             Products products = new Products();
             products.setTypeProd(items[0]);
             products.setStorage(items[1]);
-            courseList.add(products);
+            prodList.add(products);
         }
-        return courseList;
+        return prodList;
     }
 
     public boolean insertProducts(Products obj) {
