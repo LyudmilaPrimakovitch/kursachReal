@@ -81,5 +81,25 @@ public class SQLProducts implements IProduct{
         }
         return true;
     }
+    public boolean registration(Products obj) {
+        String proc = "{call insert_ttns(?,?,?,?,?,?)}";
+        try (CallableStatement callableStatement = Connect.dbConnection.prepareCall(proc)) {
+            callableStatement.setInt(1, obj.getIdclient());
+            callableStatement.setString(2, obj.getTypeProd());
+            callableStatement.setString(3, obj.getStorage());
+            callableStatement.setString(4, obj.getName());
+            callableStatement.setInt(5, obj.getBalance());
+            callableStatement.setInt(6, obj.getV());
+            callableStatement.execute();
+        } catch (SQLIntegrityConstraintViolationException e) {
+            System.out.println("ошибка" +e.getMessage());
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
 
 }

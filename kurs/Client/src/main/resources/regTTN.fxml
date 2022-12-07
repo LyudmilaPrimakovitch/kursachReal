@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #FFDEAD;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RegCourseController">
+<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #FFDEAD;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RegTTNController">
     <children>
         <Label layoutX="132.0" layoutY="151.0" text="Тип продукции">
             <font>
@@ -31,24 +31,24 @@
                 </Label>
             </children>
         </AnchorPane>
-        <Button fx:id="registrationButton" layoutX="586.0" layoutY="348.0" mnemonicParsing="false" onAction="#registrationCourse" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Отправить" textAlignment="CENTER">
+        <Button fx:id="registrationButton" layoutX="586.0" layoutY="348.0" mnemonicParsing="false" onAction="#registrationTTN" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Отправить" textAlignment="CENTER">
             <font>
                 <Font size="14.0" />
             </font>
         </Button>
-      <ComboBox id="languageList" fx:id="languageList" layoutX="275.0" layoutY="97.0" prefWidth="150.0" style="-fx-background-color: #FFDEAD; -fx-border-width: 5px; -fx-border-color: #F4A460; -fx-border-radius: 20px;" />
-      <ComboBox id="courseList" fx:id="courseList" layoutX="275.0" layoutY="149.0" prefWidth="150.0" style="-fx-background-color: #FFDEAD; -fx-border-width: 5px; -fx-border-color: #F4A460; -fx-border-radius: 20px;" />
+      <ComboBox id="storageList" fx:id="storageList" layoutX="275.0" layoutY="97.0" prefWidth="150.0" style="-fx-background-color: #FFDEAD; -fx-border-width: 5px; -fx-border-color: #F4A460; -fx-border-radius: 20px;" />
+      <ComboBox id="productList" fx:id="productList" layoutX="275.0" layoutY="149.0" prefWidth="150.0" style="-fx-background-color: #FFDEAD; -fx-border-width: 5px; -fx-border-color: #F4A460; -fx-border-radius: 20px;" />
       <Label layoutX="133.0" layoutY="205.0" text="Наименование">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="272.0" layoutY="201.0" style="-fx-background-color: #FFDEAD; -fx-border-radius: 20px; -fx-border-width: 5px; -fx-border-color: #F4A460;" />
+      <TextField id="name" fx:id="name" layoutX="272.0" layoutY="201.0" style="-fx-background-color: #FFDEAD; -fx-border-radius: 20px; -fx-border-width: 5px; -fx-border-color: #F4A460;" />
       <Label layoutX="191.0" layoutY="251.0" text="Объем">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="272.0" layoutY="247.0" style="-fx-background-color: #FFDEAD; -fx-border-radius: 20px; -fx-border-width: 5px; -fx-border-color: #F4A460;" />
+      <TextField id="size" fx:id="size" layoutX="272.0" layoutY="247.0" style="-fx-background-color: #FFDEAD; -fx-border-radius: 20px; -fx-border-width: 5px; -fx-border-color: #F4A460;" />
     </children>
 </AnchorPane>

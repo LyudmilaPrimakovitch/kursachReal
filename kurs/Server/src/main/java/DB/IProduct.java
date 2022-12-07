@@ -8,4 +8,6 @@ public interface IProduct {
     ArrayList<Products> get();
     ArrayList<Products> find(Products c);
     boolean insertProducts(Products obj);
+
+    boolean registration(Products obj);
 }

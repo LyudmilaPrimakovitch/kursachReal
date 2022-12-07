@@ -155,6 +155,20 @@ public class Work implements Runnable {
                         soos.writeObject(products);
                     }
 
+                    case "regTTN"->{
+                        System.out.println("Выполняется регистрация накладной...");
+                        Products products = (Products) sois.readObject();
+                        System.out.println(products.toString());
+
+                        SQLFactory sqlFactory = new SQLFactory();
+
+                        if (sqlFactory.getProducts().registration(products)) {
+                            soos.writeObject("OK");
+                        } else {
+                            soos.writeObject("Ошибка при оформлении");
+                        }
+                    }
+
                 }
             }
         } catch (IOException | ClassNotFoundException | SQLException e) {

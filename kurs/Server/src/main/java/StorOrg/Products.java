@@ -7,6 +7,25 @@ public class Products implements Serializable {
     private int idclient;
     private String typeProd;
     private String storage;
+
+    public int getV() {
+        return V;
+    }
+
+    public void setV(int v) {
+        V = v;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    private int V;
+    private String name;
     private int balance;
 
     public int getIdclient() {
@@ -47,6 +66,8 @@ public class Products implements Serializable {
                 "idclient=" + idclient +
                 ", typeProd='" + typeProd + '\'' +
                 ", storage='" + storage + '\'' +
+                ", name='" + name + '\'' +
+                ", V=" + V +
                 ", balance=" + balance +
                 '}';
     }

@@ -1,5 +1,6 @@
 package DB;
 
+import StorOrg.Products;
 import StorOrg.Role;
 import StorOrg.Clients;
 import java.util.ArrayList;
@@ -10,5 +11,4 @@ public interface IClients {
     boolean deleteClient(Clients obj);
     ArrayList<Clients> get();
     Clients getClient(Role r);
-
 }
