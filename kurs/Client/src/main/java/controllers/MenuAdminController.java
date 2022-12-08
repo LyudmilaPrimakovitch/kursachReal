@@ -65,8 +65,7 @@ public class MenuAdminController {
 
     @FXML
     void blok(ActionEvent event) throws IOException {
-        Connection.client.sendMessage("blok");
-        CW.changeWindow(getClass(), clientBlok, "blokClient.fxml", "", false);
+        CW.changeWindow(getClass(), clientBlok, "blokClient.fxml", "", true);
     }
     @FXML
     void profit(ActionEvent event) throws IOException {
@@ -121,7 +120,7 @@ public class MenuAdminController {
     @FXML
     void invent(ActionEvent event) throws IOException {
         Connection.client.sendMessage("inventarization");
-        CW.changeWindow(getClass(), inventarization, "showTTNs.fxml", "", false);
+        CW.changeWindow(getClass(), inventarization, "showAllTTN.fxml", "", false);
     }
 
     @FXML

@@ -44,7 +44,7 @@ public class DeleteWorkerController {
                 System.out.println("Error in reading");
             }
             System.out.println(mes);
-            if (mes.equals("Ошибка при удалении студента"))
+            if (mes.equals("Ошибка при удалении работника"))
                 Allerts.showAlertWithData();
             else {
                 Allerts.correctOperation();

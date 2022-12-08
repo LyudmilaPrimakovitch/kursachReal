@@ -27,6 +27,6 @@
                 <Font size="14.0" />
             </font>
         </Button>
-      <PieChart fx:id="languagesDiagr" layoutX="100.0" layoutY="72.0" prefHeight="300.0" prefWidth="500.0" title="Прибыль по продукции" />
+      <PieChart fx:id="storDiagram" layoutX="100.0" layoutY="72.0" prefHeight="300.0" prefWidth="500.0" title="Прибыль по складам" />
     </children>
 </AnchorPane>

@@ -72,7 +72,10 @@ public class MenuWorkerController {
     @FXML
     void showRequests(ActionEvent event) throws IOException {
         Connection.client.sendMessage("showRequests");
-        CW.changeWindow(getClass(), ReguestsButton, "showRequests.fxml", "", false);
+        Role r = new Role();
+        r.setId(Connection.id);
+        Connection.client.sendObject(r);
+        CW.changeWindow(getClass(), ReguestsButton, "showTTNs.fxml", "", false);
     }
 
 

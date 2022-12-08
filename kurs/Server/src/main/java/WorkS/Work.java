@@ -1,14 +1,19 @@
 package WorkS;
 
+import DB.Connect;
 import DB.SQLFactory;
 import StorOrg.*;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.Socket;
+import java.sql.CallableStatement;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
+import java.sql.Types;
+import java.util.AbstractMap;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Work implements Runnable {
     protected Socket clientSocket = null;
@@ -103,8 +108,65 @@ public class Work implements Runnable {
                         if (sqlFactory.getWorkers().deleteWorker(worker)) {
                             soos.writeObject("OK");
                         } else {
-                            soos.writeObject("Ошибка при удалении студента");
+                            soos.writeObject("Ошибка при удалении работника");
                         }
+                    }
+
+                    case "delClient" -> {
+                        System.out.println("Выполняется блокировка поставщика...");
+                        Clients clients = (Clients) sois.readObject();
+                        System.out.println(clients.toString());
+
+                        SQLFactory sqlFactory = new SQLFactory();
+
+                        if (sqlFactory.getClients().deleteClient(clients)) {
+                            soos.writeObject("OK");
+                        } else {
+                            soos.writeObject("Ошибка при блокировке");
+                        }
+                    }
+
+                    case "best"->{
+                        System.out.println("Запрос к БД на получение данных о поставщиках: " + clientSocket.getInetAddress().toString());
+                        SQLFactory sqlFactory = new SQLFactory();
+                        ArrayList<Clients> clients = sqlFactory.getClients().get();
+                        Collections.sort(clients, new Comparator<Clients>(){
+                            public int compare(Clients c1, Clients c2)
+                            {
+                                return c2.getAverageV().compareTo(c1.getAverageV());
+                            }
+                        });
+                        System.out.println(clients.toString());
+                        soos.writeObject(clients);
+                    }
+
+                    case "worst"->{
+                        System.out.println("Запрос к БД на получение данных о поставщиках: " + clientSocket.getInetAddress().toString());
+                        SQLFactory sqlFactory = new SQLFactory();
+                        ArrayList<Clients> clients = sqlFactory.getClients().get();
+                        Collections.sort(clients, new Comparator<Clients>(){
+                            public int compare(Clients c1, Clients c2)
+                            {
+                                return c1.getAverageV().compareTo(c2.getAverageV());
+                            }
+                        });
+                        System.out.println(clients.toString());
+                        soos.writeObject(clients);
+                    }
+
+                    case "sortV"->{
+                        System.out.println("Запрос к БД на получение данных о поставщиках: " + clientSocket.getInetAddress().toString());
+                        SQLFactory sqlFactory = new SQLFactory();
+                        ArrayList<Clients> clients = sqlFactory.getClients().get();
+                        Collections.sort(clients, new Comparator<Clients>(){
+                            public int compare(Clients c1, Clients c2)
+                            {
+                                 if (c2.getPositiveV()>c1.getPositiveV()) return 1;
+                                 else return 0;
+                            }
+                        });
+                        System.out.println(clients.toString());
+                        soos.writeObject(clients);
                     }
 
                     case "authorization" -> {
@@ -155,6 +217,19 @@ public class Work implements Runnable {
                         soos.writeObject(products);
                     }
 
+                    case "showRequests"->
+                    {
+                        System.out.println("Запрос к БД на проверку работника (таблица workers), клиент: " + clientSocket.getInetAddress().toString());
+                        Role r = (Role) sois.readObject();
+                        System.out.println(r.toString());
+
+                        SQLFactory sqlFactory = new SQLFactory();
+
+                        ArrayList<TTNs> ttns =sqlFactory.getTTNs().getByWorker(r.getId());
+                        System.out.println(ttns.toString());
+                        soos.writeObject(ttns);
+                    }
+
                     case "regTTN"->{
                         System.out.println("Выполняется регистрация накладной...");
                         Products products = (Products) sois.readObject();
@@ -166,6 +241,100 @@ public class Work implements Runnable {
                             soos.writeObject("OK");
                         } else {
                             soos.writeObject("Ошибка при оформлении");
+                        }
+                    }
+
+                    case "updateTTN", "rejectTTN" ->{
+                        System.out.println("Выполняется регистрация накладной...");
+                        TTNs ttns = (TTNs) sois.readObject();
+                        System.out.println(ttns.toString());
+
+                        SQLFactory sqlFactory = new SQLFactory();
+
+                        if (sqlFactory.getTTNs().bring(ttns)) {
+                            soos.writeObject("OK");
+                        } else {
+                            soos.writeObject("Ошибка при оформлении");
+                        }
+                    }
+
+                    case "showTTNsClient"->{
+                        System.out.println("Запрос к БД на проверку работника (таблица clients), клиент: " + clientSocket.getInetAddress().toString());
+                        Role r = (Role) sois.readObject();
+                        System.out.println(r.toString());
+
+                        SQLFactory sqlFactory = new SQLFactory();
+
+                        ArrayList<TTNs> ttns =sqlFactory.getTTNs().getByClient(r.getId());
+                        System.out.println(ttns.toString());
+                        soos.writeObject(ttns);
+                    }
+
+                    case "inventarization"->{
+                        System.out.println("Запрос в БД на инвентаризацию");
+                        String proc = "{call inventarization()}";
+                        try (CallableStatement callableStatement = Connect.dbConnection.prepareCall(proc)) {
+                            callableStatement.execute();
+                        } catch (SQLIntegrityConstraintViolationException e) {
+                            System.out.println("ошибка");
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        SQLFactory sqlFactory = new SQLFactory();
+
+                        ArrayList<TTNs> ttns =sqlFactory.getTTNs().getTtns();
+                        System.out.println(ttns.toString());
+                        soos.writeObject(ttns);
+                    }
+
+                    case "getDiagrReceive" -> {
+                        System.out.println("Запрос в БД на получение прибыли школы");
+                        SQLFactory sqlFactory = new SQLFactory();
+
+                        ArrayList<Receive> receives = sqlFactory.getReceive().get();
+
+                        ArrayList<AbstractMap.SimpleEntry<String, Integer>> data = new ArrayList<>();
+                        for (Receive r : receives) {
+                            data.add(new AbstractMap.SimpleEntry<String, Integer>(
+                                    r.getStorage(), r.getBalance()));
+                        }
+
+                        soos.writeObject(data);
+                    }
+                    case "getChartReceive" -> {
+                        System.out.println("Запрос в БД на получение прибыли школы");
+                        SQLFactory sqlFactory = new SQLFactory();
+
+                        ArrayList<Receive> receives = sqlFactory.getReceive().getChart();
+
+                        ArrayList<AbstractMap.SimpleEntry<String, Integer>> data = new ArrayList<>();
+                        for (Receive r : receives) {
+                            data.add(new AbstractMap.SimpleEntry<String, Integer>(
+                                    r.getStorage(), r.getBalance()));
+                        }
+
+                        soos.writeObject(data);
+                    }
+                    case "writeReceiveReport" -> {
+                        SQLFactory sqlFactory = new SQLFactory();
+
+                        ArrayList<Receive> receives = sqlFactory.getReceive().get();
+
+                        if (receives.size() == 0)
+                            soos.writeObject("Ничего нет");
+                        else {
+
+                            BufferedWriter outputWriter = null;
+                            outputWriter = new BufferedWriter(new FileWriter("profit"));
+                            outputWriter.write("Прибыль по складам:\n");
+                            for (Receive r : receives) {
+                                outputWriter.write(r.getBalance() + "   " + r.getStorage());
+                                outputWriter.newLine();
+                            }
+                            outputWriter.flush();
+                            outputWriter.close();
+
+                            soos.writeObject("OK");
                         }
                     }
 

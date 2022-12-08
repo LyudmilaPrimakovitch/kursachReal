@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #FFDEAD;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AnaliseController">
+    <children>
+        <Button fx:id="backButton" layoutX="33.0" layoutY="348.0" mnemonicParsing="false" onAction="#backToMenuAdmin" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Вернуться" textAlignment="CENTER">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <AnchorPane prefHeight="72.0" prefWidth="700.0" style="-fx-background-color: #F4A460;">
+            <children>
+                <Label layoutX="287.0" layoutY="5.0" prefHeight="61.0" prefWidth="125.0" text="Analise" textAlignment="RIGHT">
+                    <font>
+                        <Font name="Bernard MT Condensed" size="35.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <Button fx:id="sortV" layoutX="166.0" layoutY="246.0" mnemonicParsing="false" onAction="#sortV" prefHeight="39.0" prefWidth="358.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Сортировка поставщиков по объему поставок" textAlignment="CENTER">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Button fx:id="worst" layoutX="418.0" layoutY="141.0" mnemonicParsing="false" onAction="#worst" prefHeight="37.0" prefWidth="214.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Найти худшего поставщика" textAlignment="CENTER">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Button fx:id="best" layoutX="76.0" layoutY="141.0" mnemonicParsing="false" onAction="#best" prefHeight="37.0" prefWidth="214.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Найти лучшего поставщика" textAlignment="CENTER">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>

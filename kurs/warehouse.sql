@@ -50,7 +50,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 CREATE TABLE IF NOT EXISTS `warehouse`.`storages` (
   `idstorage` INT NOT NULL AUTO_INCREMENT,
   `type` VARCHAR(45) NOT NULL,
-  `size` INT NULL default NULL,
+  `size` INT NULL default 5000,
   PRIMARY KEY (`idstorage`),
   UNIQUE INDEX `storage_UNIQUE` (`type` ASC) VISIBLE)
 ENGINE = InnoDB

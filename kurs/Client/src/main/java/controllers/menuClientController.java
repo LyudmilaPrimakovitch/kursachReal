@@ -59,8 +59,11 @@ public class menuClientController {
 
     @FXML
     void showTTN(ActionEvent event) throws IOException {
-        Connection.client.sendMessage("showTTN");
-        CW.changeWindow(getClass(), showTTNButton, "showTTN.fxml", "", false);
+        Connection.client.sendMessage("showTTNsClient");
+        Role r = new Role();
+        r.setId(Connection.id);
+        Connection.client.sendObject(r);
+        CW.changeWindow(getClass(), showTTNButton, "showTTNsClient.fxml", "", false);
     }
 
     @FXML

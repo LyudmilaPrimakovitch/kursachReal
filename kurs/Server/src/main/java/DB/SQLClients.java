@@ -55,7 +55,7 @@ public class SQLClients  implements IClients{
             callableStatement.setString(1, obj.getLogin());
             callableStatement.execute();
         } catch (SQLIntegrityConstraintViolationException e) {
-            System.out.println("ошибка");
+            System.out.println("ошибка"+e.getMessage());
             return false;
         } catch (Exception e) {
             e.printStackTrace();
@@ -66,7 +66,7 @@ public class SQLClients  implements IClients{
 
     @Override
     public ArrayList<Clients> get() {
-        String str = "select `keys`.login, companyName, email, averageV, payments.payment" +
+        String str = "select `keys`.login, companyName, email, averageV, positiveV, payments.payment" +
                 " from clients" +
                 " join `keys` on `keys`.`id_keys` = clients.id_keys" +
                 " left join payments on payments.idpayment = clients.idpayment;";
@@ -78,6 +78,7 @@ public class SQLClients  implements IClients{
             clients.setCompanyName(items[1]);
             clients.setEmail(items[2]);
             clients.setAverageV(items[3]);
+            clients.setPositiveV(Integer.parseInt(items[4]));
             try {
                 clients.setPayment(Integer.parseInt(items[5]));
             } catch (NumberFormatException e) {
@@ -90,7 +91,7 @@ public class SQLClients  implements IClients{
 
     @Override
     public Clients getClient(Role r) {
-        String str = "select `keys`.login, companyName, email, averageV, payments.payment" +
+        String str = "select `keys`.login, companyName, email, averageV, positiveV, payments.payment" +
                 " from clients" +
                 " join `keys` on `keys`.`id_keys` = clients.id_keys" +
                 " left join payments on payments.idpayment = clients.idpayment" +
@@ -102,6 +103,7 @@ public class SQLClients  implements IClients{
             clients.setCompanyName(items[1]);
             clients.setEmail(items[2]);
             clients.setAverageV(items[3]);
+            clients.setPositiveV(Integer.parseInt(items[4]));
             try {
                 clients.setPayment(Integer.parseInt(items[5]));
             } catch (NumberFormatException e) {

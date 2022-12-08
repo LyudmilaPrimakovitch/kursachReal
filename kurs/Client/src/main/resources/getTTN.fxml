@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #FFDEAD;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.GetTTNController">
+    <children>
+        <Label layoutX="132.0" layoutY="151.0">
+            <font>
+                <Font size="18.0" />
+            </font></Label>
+        <Button fx:id="backButton" layoutX="33.0" layoutY="348.0" mnemonicParsing="false" onAction="#backToMain" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Назад" textAlignment="CENTER">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <AnchorPane prefHeight="72.0" prefWidth="700.0" style="-fx-background-color: #F4A460;">
+            <children>
+                <Label layoutX="211.0" layoutY="5.0" prefHeight="62.0" prefWidth="321.0" text="Заверение ТТН" textAlignment="RIGHT">
+                    <font>
+                        <Font name="Bernard MT Condensed" size="35.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <Button fx:id="registrationButton" layoutX="586.0" layoutY="348.0" mnemonicParsing="false" onAction="#bringTTN" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Принять" textAlignment="CENTER">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+      <Label layoutX="133.0" layoutY="204.0" text="Срок годности">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField id="date" fx:id="date" layoutX="272.0" layoutY="200.0" prefHeight="35.0" prefWidth="159.0" promptText="гггг-мм-дд" style="-fx-background-color: #FFDEAD; -fx-border-radius: 20px; -fx-border-width: 5px; -fx-border-color: #F4A460;" />
+      <Label layoutX="193.0" layoutY="100.0" text="id ТТН">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField id="id" fx:id="id" layoutX="272.0" layoutY="96.0" style="-fx-background-color: #FFDEAD; -fx-border-radius: 20px; -fx-border-width: 5px; -fx-border-color: #F4A460;" />
+      <Button fx:id="rejectButton" layoutX="431.0" layoutY="348.0" mnemonicParsing="false" onAction="#rejectTTN" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #FFDEAD; -fx-border-color: #F4A460; -fx-border-width: 5px; -fx-border-radius: 20px;" text="Отклонить" textAlignment="CENTER">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+    </children>
+</AnchorPane>
